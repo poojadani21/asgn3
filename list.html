@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registered Users</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>Registered Users</h1>
+    <ul id="user-list"></ul>
+
+    <script>
+      // Retrieve the list of registered users from local storage
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+      // Display the list of registered users
+      const userList = document.getElementById("user-list");
+      for (const user of users) {
+        const li = document.createElement("li");
+        li.textContent = `${user.name} (${user.email})`;
+        userList.appendChild(li);
+      }
+    </script>
+  </body>
+</html>
